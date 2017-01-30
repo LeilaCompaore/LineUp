@@ -9,7 +9,9 @@ Installation
 Assurer vous d'avoir installer les versions les plus récentes de ruby(2.4.0) et pip(9.0.1).
 Installez aussi sinatra avec gem install sinatra
 
+
 Instructions pour rouler l'application
+
 Une fois dans le folder LineUp dans votre ligne de commande, entrez ruby main.rb
 cette instruction va démarrer l'application a l'address http://localhost:4567/
 
@@ -22,8 +24,11 @@ Aucun test n'a encore été effectué pour le moment
 Technologie utilisée
 
 IDE: Atom
+
 Sinatra: ruby
+
 PureCSS: CSS framework
+
 
 Acknowledgments
 
