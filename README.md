@@ -12,6 +12,7 @@ Installez aussi sinatra avec gem install sinatra
 
 Instructions pour rouler l'application
 
+Le code de la branch dev est le plus à jour.
 Une fois dans le folder LineUp dans votre ligne de commande, entrez ruby main.rb
 cette instruction va démarrer l'application a l'address http://localhost:4567/
 
