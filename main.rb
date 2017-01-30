@@ -1,16 +1,32 @@
 require 'sinatra'
 get '/' do
-  'Hello world'
+  # "Hello world, its #{Time.now}"
+  # erb :home, :layout => :homelayout
+  erb :homelayout
+  home = true
 end
 get '/login' do
-  'login page'
+  "login page"
+end
+get '/error' do
+  "Errorpage"
+  erb :homelayout
+  err = true
 end
 get '/register' do
-  'register page'
+  "register page"
 end
-get '/admin' do
-  'admin login'
-end
+
 get '/profile' do
-  'profile page'
+  "profile page"
 end
+get '/minuterie' do
+  "minuterie"
+end
+
+# use Rack::Auth::Basic, "Potected Area" do |adminName, adminPass|
+#   adminName == 'adminn' && adminPass == 'admin'
+#   get '/admin' do
+#     'admin login'
+#   end
+# end

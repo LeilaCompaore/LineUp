@@ -1,0 +1,34 @@
+
+.pure-menu-heading.pure-menu-link{
+    background-color: #f44336;
+    color: white;
+    padding: 15px 30px;
+    /*text-align: center;*/
+    /*text-decoration: none;*/
+    display: inline-block;
+    border-radius: 20px;
+}
+body{
+    /*background-color: #7AFFFC;*/
+    height: 100vh;
+
+}
+
+.pure-menu.navbar{
+    height: 100vh;
+    padding: 300px 0;
+    background-color: #0E5873;
+}
+.pure-u-1-2.a1{
+    /*background-color: yellow;*/
+    position: absolute;
+    top: 40%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.gros-button {
+    font-size: 125%;
+    width: 250px;
+    border-radius: 20px;
+}
