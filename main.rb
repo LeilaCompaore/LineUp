@@ -3,7 +3,7 @@ get '/' do
   # "Hello world, its #{Time.now}"
   # erb :home, :layout => :homelayout
   erb :homelayout
-  home = true
+  # home = true
 end
 get '/login' do
   "login page"
@@ -11,7 +11,7 @@ end
 get '/error' do
   "Errorpage"
   erb :homelayout
-  err = true
+  # err = true
 end
 get '/register' do
   "register page"
