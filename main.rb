@@ -18,7 +18,7 @@ get '/register' do
 end
 
 get '/profile' do
-  "profile page"
+  erb :profile
 end
 get '/minuterie' do
   "minuterie"
