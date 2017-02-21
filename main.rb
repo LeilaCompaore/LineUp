@@ -2,7 +2,7 @@ require 'sinatra'
 get '/' do
   # "Hello world, its #{Time.now}"
   # erb :home, :layout => :homelayout
-  erb :homelayout
+  erb :"public/homelayout"
   # home = true
 end
 get '/login' do
@@ -10,7 +10,7 @@ get '/login' do
 end
 get '/error' do
   "Errorpage"
-  erb :homelayout
+  erb :"public/errorpage"
   # err = true
 end
 get '/register' do
@@ -18,7 +18,7 @@ get '/register' do
 end
 
 get '/profile' do
-  erb :profile
+  erb :"user/profile"
 end
 get '/minuterie' do
   "minuterie"
