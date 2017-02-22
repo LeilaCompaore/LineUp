@@ -1,4 +1,7 @@
 require 'sinatra'
+require 'sinatra/activerecord'
+require './config/environments'
+require './models/model'
 get '/' do
   # "Hello world, its #{Time.now}"
   # erb :home, :layout => :homelayout

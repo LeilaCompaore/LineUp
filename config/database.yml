@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: LineUpBD
+  username: leilacompaore
+  password:
+  host: localhost
