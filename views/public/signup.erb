@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css"
-	integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD"
-	crossorigin="anonymous">
-	<title>LineUp</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.7/semantic.min.css">
+	<title>Sign up form</title>
 </head>
 <body>
-	<h2>Homepage</h2>
-	<p>welcome</p>
+<div class="ui grid">
+	<div class="four wide column">
+		<%= erb :"user/partials/_menu"%>
+	</div>
+	<div class="twelve wide column" style="background-color: #f44336">
+		<div>
+			<p>Welcome </p>
+		</div>
+	</div>
+</div>
+
+
 </body>
 </html>

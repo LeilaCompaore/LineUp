@@ -23,6 +23,9 @@ end
 get '/minuterie' do
   "minuterie"
 end
+get '/signup' do
+  erb :"public/signup"
+end
 
 # use Rack::Auth::Basic, "Potected Area" do |adminName, adminPass|
 #   adminName == 'adminn' && adminPass == 'admin'
