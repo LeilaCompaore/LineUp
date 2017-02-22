@@ -26,6 +26,13 @@ end
 get '/signup' do
   erb :"public/signup"
 end
+post '/welcome' do
+  erb :"user/welcome", locals: {:firstname => params[:firstname],
+                                :lastname => params[:lastname],
+                                :email => params[:email],
+                                :password => params[:password]
+                                }
+end
 
 # use Rack::Auth::Basic, "Potected Area" do |adminName, adminPass|
 #   adminName == 'adminn' && adminPass == 'admin'
