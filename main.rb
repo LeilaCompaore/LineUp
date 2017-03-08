@@ -1,3 +1,4 @@
+require 'sinatra'
 require 'bundler'
 #requires errthing
 Bundler.require

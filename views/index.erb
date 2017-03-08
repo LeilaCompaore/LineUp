@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>welc</title>
+</head>
+<body>
+  <h1>Welcome fam</h1>
+  <p> <%= @name %></p>
+  <p>
+    <% for a in @posts %>
+  <span><%= a["id"] %></span><br>
+<% end %>
+  </p>
+  <form action="/" method="post">
+    <input type="text" name="name"/>
+    <input type="text" name="description"/>
+    <button type="submit">submit</button>
+  </form>
+</body>
+</html>
