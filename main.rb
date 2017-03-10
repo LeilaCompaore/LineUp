@@ -31,6 +31,9 @@ get '/signupadmin' do
   isAdmin = true
   erb :"public/signupadmin"
 end
+get '/signin' do
+  erb :"public/signin"
+end
 post '/welcome' do
   erb :"user/welcome", locals: {:firstname => params[:firstname],
                                 :lastname => params[:lastname],
