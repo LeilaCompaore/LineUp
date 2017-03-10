@@ -24,7 +24,12 @@ get '/minuterie' do
   "minuterie"
 end
 get '/signup' do
+  isAdmin = false
   erb :"public/signup"
+end
+get '/signupadmin' do
+  isAdmin = true
+  erb :"public/signupadmin"
 end
 post '/welcome' do
   erb :"user/welcome", locals: {:firstname => params[:firstname],
