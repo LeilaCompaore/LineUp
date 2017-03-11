@@ -4,7 +4,7 @@ class CreateQueues < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.integer :maxUsers
-      
+
       t.timestamps
     end
   end
