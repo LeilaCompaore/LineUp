@@ -10,17 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308171057) do
+ActiveRecord::Schema.define(version: 20170311032932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "articles", force: :cascade do |t|
-    t.string  "title",        limit: 50
-    t.text    "content"
-    t.boolean "published",               default: false
-    t.date    "published_on"
-    t.integer "likes",                   default: 0
+  create_table "admins_to_queues", force: :cascade do |t|
+    t.integer  "queueId"
+    t.integer  "adminId"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "liners_to_queues", force: :cascade do |t|
+    t.integer  "queueId"
+    t.integer  "linerId"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -30,11 +36,22 @@ ActiveRecord::Schema.define(version: 20170308171057) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.string   "name",       limit: 50
-    t.string   "text",       limit: 50
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "queues", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "maxUsers"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.integer  "telephone"
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
