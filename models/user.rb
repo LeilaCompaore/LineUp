@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, message: "email is invalid" }
   validates :password, presence: true, length: {minimum: 6}
 
-  has_many :linersToQueues
-  has_many :queues, through: :linersToQueues
+  has_many :linersToQueue
+  has_many :queuees, through: :linersToQueue
 
-  has_many :adminsToQueues
-  has_many :queues, through: :adminsToQueues  
+  has_many :adminsToQueue
+  has_many :queuees, through: :adminsToQueue
 end

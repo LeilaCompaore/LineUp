@@ -16,17 +16,21 @@ ActiveRecord::Schema.define(version: 20170311032932) do
   enable_extension "plpgsql"
 
   create_table "admins_to_queues", force: :cascade do |t|
-    t.integer  "queueId"
-    t.integer  "adminId"
+    t.integer  "queuee_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["queuee_id"], name: "index_admins_to_queues_on_queuee_id", using: :btree
+    t.index ["user_id"], name: "index_admins_to_queues_on_user_id", using: :btree
   end
 
   create_table "liners_to_queues", force: :cascade do |t|
-    t.integer  "queueId"
-    t.integer  "linerId"
+    t.integer  "queuee_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["queuee_id"], name: "index_liners_to_queues_on_queuee_id", using: :btree
+    t.index ["user_id"], name: "index_liners_to_queues_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|

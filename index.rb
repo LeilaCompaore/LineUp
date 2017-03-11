@@ -3,8 +3,8 @@ require 'bundler'
 Bundler.require
 require 'sinatra/json'
 
-require './models/adminsToQueues'
-require './models/linersToQueues'
+require './models/adminsToQueue'
+require './models/linersToQueue'
 require './models/user'
 require './models/queue'
 
@@ -50,16 +50,17 @@ get '/queues' do
 end
 
 post '/queues' do
+  #the following ifs statements should be wrapped in a transation:
+  #meaning the failure of one should lead to the failure of the whole persistence action
 
   #before a queue is saved, it has to be associated with an admin
-
   #first get the adminId
-  # @adminId = params[:adminId]
+  @adminId = params[:adminId]
 
   #delete it from the params
-  # params.delete("adminId")
+  params.delete("adminId")
   #to print the params in a API manner
-  # params.to_json
+  #params.to_json
   @queue = Queuee.new(params)
 
   #then create the queue with the now clean params
@@ -70,26 +71,26 @@ post '/queues' do
     status 500
     json "An error occured"
   end
-
   #finally, associate the queue and the admin
   #first find the admin user object then create
-  # if User.find(@adminId).adminsToQueues.create(queue: @queue)
-  #   status 201
-  #   json "Queue associated with admin"
-  # else
-  #   status 500
-  #   json "An error occured with the assocaition"
-  # end
+  @usr = User.find(@adminId)
 
+  if @usr.adminsToQueue.create(queuee: @queue)
+    status 201
+    json "Queue associated with admin"
+  else
+    status 500
+    json "An error occured with the assocaition"
+  end
 
 end
 
 get '/admin' do
-  @adminsToQueues = AdminsToQueues.all
+  @adminsToQueues = AdminsToQueue.all
   @adminsToQueues.to_json
 end
 
 get '/liner' do
-  @linersToQueues = LinersToQueues.all
+  @linersToQueues = LinersToQueue.all
   @linersToQueues.to_json
 end
