@@ -54,10 +54,10 @@ post '/queues' do
   #before a queue is saved, it has to be associated with an admin
 
   #first get the adminId
-  @adminId = params[:adminId]
+  # @adminId = params[:adminId]
 
   #delete it from the params
-  params.delete("adminId")
+  # params.delete("adminId")
   #to print the params in a API manner
   # params.to_json
   @queue = Queuee.new(params)

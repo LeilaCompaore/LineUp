@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170311032932) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "queues", force: :cascade do |t|
+  create_table "queuees", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "maxUsers"
