@@ -5,19 +5,76 @@
   <title>Welcome Jane Doe</title>
   <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <style>
+  body{
+    color: white;
+  }
+  #menu {
+    background-color: #C5C1C0;
+  }
+  .pure-menu-link {
+    color: white;
+  }
+  #stats{
+    background-color: #F7CE3E;
+  }
+  #content {
+    background-color: #1A2930;
+  }
+  </style>
 </head>
 <body>
-<div class="pure-g">
-  <div class="pure-u-1-5">
-    <%= erb :"user/partials/_menu"%>
-  </div>
-  <div class="pure-u-4-5" style="background-color: #f44336">
-    <div>
-      <p>Welcome </p>
+  <div class="pure-g">
+
+    <!--
+    menu
+    -->
+    <div class="pure-u-1-5" id="menu">
+      <div class="pure-menu">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <a href="" class="pure-menu-link">
+              <i class="fa fa-long-arrow-left"></i>
+              Profile
+            </a>
+          </li>
+          <li class="pure-menu-item">
+            <a href="" class="pure-menu-link">
+              <i class="fa fa-long-arrow-left"></i>
+              Settings
+            </a>
+          </li>
+          <li class="pure-menu-item">
+            <a href="" class="pure-menu-link">
+              <i class="fa fa-long-arrow-left"></i>
+              LogOut
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pure-u-4-5">
+      <!--
+      statistics
+      -->
+      <div id="stats">
+        <div>
+          <p>Statistics </p>
+        </div>
+      </div>
+
+
+      <!--
+      files en actions
+      -->
+      <div id="content">
+        <div>
+          <p>Active queues</p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-
 </body>
 </html>
