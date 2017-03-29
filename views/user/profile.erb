@@ -23,23 +23,53 @@
   }
   .pure-menu{
     height: 100vh;
+    position: absolute;
+  }
+  .pure-menu-list {
+    position: relative;
+    left: 1em;
   }
   .pure-menu-link {
     color: black;
-    padding-right: 0;
-    padding-left: 0;
   }
   .pure-menu-item {
-    height: 20%;
     margin: 20px 0;
     line-height: 5px;
     text-align: center;
-    background-color: pink;
+    /*background-color: pink;*/
     border-radius: 10px;
-    /*width: 50%*/
   }
   i{
     font-size: 50px;
+  }
+
+
+  /*stats*/
+  #stats {
+    height: 30vh;
+
+  }
+  .statsCell {
+    /*background-color: pink;*/
+    display: inline-block;
+    width: 30%;
+    height: 90%;
+    margin: 0.5em 1em;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    }
+
+
+  /*content*/
+  #content {
+    height: 70vh;
+  }
+
+
+
+  p{
+    margin-top: 0;
   }
   </style>
 </head>
@@ -58,8 +88,14 @@
       statistics
       -->
       <div id="stats">
-        <div>
-          <p>Statistics </p>
+        <div class="statsCell">
+          <p>Queues enrolled in </p>
+        </div>
+        <div class="statsCell">
+          <p>Queues administrated</p>
+        </div>
+        <div class="statsCell">
+          <p>member since </p>
         </div>
       </div>
 
