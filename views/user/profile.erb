@@ -51,23 +51,33 @@
   }
   .statsCell {
     /*background-color: pink;*/
-    display: inline-block;
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 30%;
     height: 90%;
     margin: 0.5em 1em;
     text-align: center;
     border-style: solid;
     border-width: 2px;
+    border-radius: 5px;
     }
-
+    .statsNumbers{
+      display: block;
+      font-size: 56px;
+      font-weight: bold;
+      margin: 0;
+    }
+    .statsTitle {
+      position: absolute;
+      margin-top: 5em;
+      /*margin-left: 0;*/
+    }
 
   /*content*/
   #content {
     height: 70vh;
   }
-
-
-
   p{
     margin-top: 0;
   }
@@ -89,13 +99,16 @@
       -->
       <div id="stats">
         <div class="statsCell">
-          <p>Queues enrolled in </p>
+          <p class="statsNumbers">15</p>
+          <p class="statsTitle">Queues enrolled in </p>
         </div>
         <div class="statsCell">
-          <p>Queues administrated</p>
+          <p class="statsNumbers">31</p>
+          <p class="statsTitle">Queues administrated</p>
         </div>
         <div class="statsCell">
-          <p>member since </p>
+          <p class="statsNumbers">04 Dec 1995</p>
+          <p class="statsTitle">member since </p>
         </div>
       </div>
 
