@@ -177,3 +177,51 @@ get '/myqueues' do
     json "Error admin to queues"
   end
 end
+
+
+#serve a user (courtoisie d'un admin seulement)
+post '/serveuser' do
+  @userToBeServed = params[:userId]
+  @admin = params[:adminId]
+  @queue = params[:queueId]
+  #FIRST find if the admin is really administrating the queue specified
+  @findAdminQueue = AdminsToQueue.where("user_id = ? AND queuee_id = ?", params[:adminId], params[:queueId])
+  if @findAdminQueue
+    #SECOND find if the user is actually registered inthe queue
+    @findUserInQueue = LinersToQueue.where("user_id = ? AND queuee_id = ?", params[:userId], params[:queueId])
+    if findUserInQueue
+      json "bingo"
+    else
+      json "liner not found"
+    end
+  else
+    json "queue not found for this admin"
+  end
+end
+
+
+#register in a line
+post '/registerinline' do
+  #FIRST is the line really there AND is the user really a user
+  @queue = Queuee.find(params[:queuee_id])
+  @user = User.find(params[:user_id])
+  if @queue && @user
+    #SECOND is the liner already registered
+    @possibleUserAlreadyInLine = LinersToQueue.where("user_id = ? AND queuee_id = ?", params[:user_id], params[:queuee_id])
+    if !@possibleUserAlreadyInLine.empty?
+      # json "you're aleady in line my friend"
+      @possibleUserAlreadyInLine.to_json
+    else
+      # THEM try register the liner
+      @liner = LinersToQueue.new(params)
+      if @liner.save
+        json "registered"
+      else
+        json "not registered AN error occured"
+      end
+    end
+
+  else
+    json "QUeue not found or user not found"
+  end
+end
