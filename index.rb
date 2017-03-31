@@ -229,3 +229,25 @@ post '/registerinline' do
     json "QUeue not found or user not found"
   end
 end
+
+#findliners in a queue (courtoisie d'un admin seulement)
+post '/findliners' do
+  #First are you the admin? and do you even exist
+  @admin = User.find(params[:adminId])
+  @queue = Queuee.find(params[:queueId])
+  @queueAdminSide = AdminsToQueue.where("user_id = ? AND queuee_id = ?", params[:adminId], params[:queueId])
+
+  if @admin && @queue && !@queueAdminSide.empty?
+    #only closable if empty for now
+    @queueOfLiners = LinersToQueue.where("queuee_id = ?", params[:queueId])
+    if !@queueOfLiners.empty?
+      @queueOfLiners.to_json
+    else
+      json "the queue is empty"
+
+    end
+  else
+    json "either you're not the admin or you're not a user"
+  end
+
+end
