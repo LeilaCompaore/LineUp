@@ -178,27 +178,31 @@ get '/myqueues' do
   end
 end
 
-
+#I have tested this but it probably need un coup d'oeil extra
 #serve a user (courtoisie d'un admin seulement)
 post '/serveuser' do
-  @userToBeServed = params[:userId]
-  @admin = params[:adminId]
-  @queue = params[:queueId]
-  #FIRST find if the admin is really administrating the queue specified
-  @findAdminQueue = AdminsToQueue.where("user_id = ? AND queuee_id = ?", params[:adminId], params[:queueId])
-  if @findAdminQueue
-    #SECOND find if the user is actually registered inthe queue
-    @findUserInQueue = LinersToQueue.where("user_id = ? AND queuee_id = ?", params[:userId], params[:queueId])
-    if findUserInQueue
-      json "bingo"
+  #ZERO actually. Does the user (liner) exist? the admin? the queue? ya right. fix that gurl
+  @userToBeServed = User.find(params[:userId])
+  @admin = User.find(params[:adminId])
+  @queue = Queuee.find(params[:queueId])
+  if @userToBeServed && @admin && @queue
+    #FIRST find if the admin is really administrating the queue specified
+    @findAdminQueue = AdminsToQueue.where("user_id = ? AND queuee_id = ?", params[:adminId], params[:queueId])
+    if !@findAdminQueue.empty?
+      #SECOND find if the user is actually registered inthe queue
+      @findUserInQueue = LinersToQueue.where("user_id = ? AND queuee_id = ?", params[:userId], params[:queueId])
+      if !@findUserInQueue.empty?
+        @findUserInQueue.first.destroy
+      else
+        json "liner not found"
+      end
     else
-      json "liner not found"
+      json "queue not found for this admin"
     end
   else
-    json "queue not found for this admin"
+    json "either your admin, or liner or queue doesnot exist. Ya you tried"
   end
 end
-
 
 #register in a line
 post '/registerinline' do
