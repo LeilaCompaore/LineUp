@@ -115,11 +115,16 @@ end
 #get a user by email
 get '/signin' do
   @email = params[:email]
+  @password = params[:password]
   @user = User.find_by! email: @email
   if @user
     status 201
     json "FOUND"
-    @user.to_json
+    if @user.password == @password
+      @user.to_json
+    else
+      json "PASSWORD NOT CORRECT"
+    end
   else
     status 500
     json "NOT FOUND"
