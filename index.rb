@@ -100,7 +100,6 @@ end
 # ACTIONS
 
 # create user
-
 post '/signup' do
   @user = User.new(params)
   if @user.save
@@ -128,5 +127,53 @@ get '/signin' do
   else
     status 500
     json "NOT FOUND"
+  end
+end
+
+#create queue
+post '/queue' do
+  #the following ifs statements should be wrapped in a transation:
+  #meaning the failure of one should lead to the failure of the whole persistence action
+
+  #before a queue is saved, it has to be associated with an admin
+  #first get the adminId
+  @adminId = params[:adminId]
+
+  #delete it from the params
+  params.delete("adminId")
+  #to print the params in a API manner
+  #params.to_json
+  @queue = Queuee.new(params)
+
+  #then create the queue with the now clean params
+  if @queue.save
+    status 201
+    json "Queue was saved"
+  else
+    status 500
+    json "An error occured"
+  end
+  #finally, associate the queue and the admin
+  #first find the admin user object then create
+  @usr = User.find(@adminId)
+
+  if @usr.adminsToQueue.create(queuee: @queue)
+    status 201
+    json "Queue associated with admin"
+  else
+    status 500
+    json "An error occured with the assocaition"
+  end
+end
+
+#find all the queues for A CERTAIN USER ADMIN
+get '/myqueues' do
+  @myqueues = AdminsToQueue.where(user_id: params[:adminId])
+  if @myqueues
+    status 201
+    json "works"
+    @myqueues.to_json
+  else
+    json "Error admin to queues"
   end
 end
