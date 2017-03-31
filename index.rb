@@ -94,3 +94,34 @@ get '/liner' do
   @linersToQueues = LinersToQueue.all
   @linersToQueues.to_json
 end
+
+
+
+# ACTIONS
+
+# create user
+
+post '/signup' do
+  @user = User.new(params)
+  if @user.save
+    status 201
+    json "User was saved"
+  else
+    status 500
+    json "An error occured"
+  end
+end
+
+#get a user by email
+get '/signin' do
+  @email = params[:email]
+  @user = User.find_by! email: @email
+  if @user
+    status 201
+    json "FOUND"
+    @user.to_json
+  else
+    status 500
+    json "NOT FOUND"
+  end
+end
