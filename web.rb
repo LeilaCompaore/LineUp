@@ -3,7 +3,7 @@ require 'bundler'
 #requires errthing
 Bundler.require
 
-class Main < Sinatra::Base
+class Web < Sinatra::Base
   get '/' do
     puts "debut"
     "allo"
