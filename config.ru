@@ -1,5 +1,5 @@
 require 'sinatra'
 
-require './web'
+require './main'
 
 run Sinatra::Application
