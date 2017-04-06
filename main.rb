@@ -42,40 +42,76 @@ Bundler.require
 # <============== BIG COMMENT END
 
 ## for here rackup main.rb ==>
-class Main < Sinatra::Base
-  get '/' do
-    # "Hello world, its #{Time.now}"
-    # erb :home, :layout => :homelayout
-    erb :"public/homelayout"
-    # home = true
-  end
-  get '/login' do
-    "login page"
-  end
-  get '/error' do
-    "Errorpage"
-    erb :"public/errorpage"
-    # err = true
-  end
-  get '/register' do
-    "register page"
-  end
+# class Main < Sinatra::Base
+#   get '/' do
+#     # "Hello world, its #{Time.now}"
+#     # erb :home, :layout => :homelayout
+#     erb :"public/homelayout"
+#     # home = true
+#   end
+#   get '/login' do
+#     "login page"
+#   end
+#   get '/error' do
+#     "Errorpage"
+#     erb :"public/errorpage"
+#     # err = true
+#   end
+#   get '/register' do
+#     "register page"
+#   end
+#
+#   get '/profile' do
+#     erb :"user/profile"
+#   end
+#   get '/minuterie' do
+#     "minuterie"
+#   end
+#   get '/signup' do
+#     erb :"public/signup"
+#   end
+#   post '/welcome' do
+#     erb :"user/welcome", locals: {:firstname => params[:firstname],
+#                                   :lastname => params[:lastname],
+#                                   :email => params[:email],
+#                                   :password => params[:password]
+#     }
+#   end
+# end
+# ## ===|
 
-  get '/profile' do
-    erb :"user/profile"
-  end
-  get '/minuterie' do
-    "minuterie"
-  end
-  get '/signup' do
-    erb :"public/signup"
-  end
-  post '/welcome' do
-    erb :"user/welcome", locals: {:firstname => params[:firstname],
-                                  :lastname => params[:lastname],
-                                  :email => params[:email],
-                                  :password => params[:password]
-    }
-  end
+
+get '/' do
+  # "Hello world, its #{Time.now}"
+  # erb :home, :layout => :homelayout
+  erb :"public/homelayout"
+  # home = true
 end
-## ===|
+get '/login' do
+  "login page"
+end
+get '/error' do
+  "Errorpage"
+  erb :"public/errorpage"
+  # err = true
+end
+get '/register' do
+  "register page"
+end
+
+get '/profile' do
+  erb :"user/profile"
+end
+get '/minuterie' do
+  "minuterie"
+end
+get '/signup' do
+  erb :"public/signup"
+end
+post '/welcome' do
+  erb :"user/welcome", locals: {:firstname => params[:firstname],
+                                :lastname => params[:lastname],
+                                :email => params[:email],
+                                :password => params[:password]
+  }
+end
