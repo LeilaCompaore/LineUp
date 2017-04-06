@@ -1,5 +1,5 @@
 require 'sinatra'
 
-require './wxeb.rb'
+require './web.rb'
 
 run Sinatra::Application
