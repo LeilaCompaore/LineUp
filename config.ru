@@ -1,5 +1,5 @@
 require 'sinatra'
 
-require './web.rb'
+require './web'
 
 run Sinatra::Application
