@@ -2,21 +2,275 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.7/semantic.min.css">
   <title>Welcome Jane Doe</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
+  <style>
+  body{
+    color: white;
+  }
+  #menu {
+    background-color: #C5C1C0;
+  }
+  #stats{
+    background-color: #F7CE3E;
+  }
+  #content {
+    background-color: #1A2930;
+  }
+  .pure-menu{
+    height: 100vh;
+    position: absolute;
+  }
+  .pure-menu-list {
+    position: relative;
+    left: 1em;
+  }
+  .pure-menu-link {
+    color: black;
+  }
+  .pure-menu-item {
+    margin: 20px 0;
+    line-height: 5px;
+    text-align: center;
+    /*background-color: pink;*/
+    border-radius: 10px;
+  }
+  i{
+    font-size: 50px;
+  }
+
+
+  /*stats*/
+  #stats {
+    height: 30vh;
+
+  }
+  .statsCell {
+    /*background-color: pink;*/
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 90%;
+    margin: 0.5em 1em;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    }
+    .statsNumbers{
+      display: block;
+      font-size: 56px;
+      font-weight: bold;
+      margin: 0;
+    }
+    .statsTitle {
+      position: absolute;
+      margin-top: 5em;
+      /*margin-left: 0;*/
+    }
+
+  /*content*/
+  #content {
+    height: 70vh;
+    display: flex;
+  }
+  .queueDisplay {
+    width: 50%;
+    border-style: solid;
+    border-width: 2px;
+    overflow: scroll;
+  }
+  .singlequeue{
+    text-align: center;
+    background-color: #2d4753;
+    margin: 10px 0;
+    padding: 15px 0;
+    border-radius: 25px;
+  }
+  .pure-button {
+    border-radius: 10%;
+  }
+  p{
+    margin-top: 0;
+  }
+  </style>
 </head>
 <body>
-<div class="ui grid">
-  <div class="four wide column">
-    <%= erb :"user/partials/_menu"%>
-  </div>
-  <div class="twelve wide column" style="background-color: #f44336">
-    <div>
-      <p>Welcome </p>
+  <div class="pure-g">
+
+    <!--
+    menu
+    -->
+    <div class="pure-u-2-24" id="menu">
+      <%= erb :"user/partials/_menu"%>
+    </div>
+
+    <div class="pure-u-22-24">
+      <!--
+      statistics
+      -->
+      <div id="stats">
+        <div class="statsCell">
+          <p class="statsNumbers">15</p>
+          <p class="statsTitle">Queues enrolled in </p>
+        </div>
+        <div class="statsCell">
+          <p class="statsNumbers">31</p>
+          <p class="statsTitle">Queues administrated</p>
+        </div>
+        <div class="statsCell">
+          <p class="statsNumbers">04 Dec 1995</p>
+          <p class="statsTitle">member since </p>
+        </div>
+      </div>
+
+
+      <!--
+      files en actions
+      -->
+      <div id="content">
+        <div class="queueDisplay">
+          <h2>the queues you re enrolled in</h2>
+          <div class="singlequeue">
+            <div>
+              <span><b>title</b></span>
+              <p>
+                you have 45 people ahead of you
+              </p>
+            </div>
+            <div>
+              <a href="#" class="pure-button pure-button-primary">details</a>
+              <button class="pure-button pure-button-primary">quit</button>
+            </div>
+          </div>
+          <div class="singlequeue">
+            <div>
+              <span><b>title</b></span>
+              <p>
+                you have 45 people ahead of you
+              </p>
+            </div>
+            <div>
+              <a href="#" class="pure-button pure-button-primary">details</a>
+              <button class="pure-button pure-button-primary">quit</button>
+            </div>
+          </div>
+          <div class="singlequeue">
+            <div>
+              <span><b>title</b></span>
+              <p>
+                you have 45 people ahead of you
+              </p>
+            </div>
+            <div>
+              <a href="#" class="pure-button pure-button-primary">details</a>
+              <button class="pure-button pure-button-primary">quit</button>
+            </div>
+          </div>
+          <div class="singlequeue">
+            <div>
+              <span><b>title</b></span>
+              <p>
+                you have 45 people ahead of you
+              </p>
+            </div>
+            <div>
+              <a href="#" class="pure-button pure-button-primary">details</a>
+              <button class="pure-button pure-button-primary">quit</button>
+            </div>
+          </div>
+          <div class="singlequeue">
+            <span><b>title</b></span>
+            <p>
+              you have 45 people ahead of you
+            </p>
+            <a href="#" class="pure-button pure-button-primary">details</a>
+            <button class="pure-button pure-button-primary">quit</button>
+          </div>
+        </div>
+
+        <div class="queueDisplay">
+          <h2>the queues you manage</h2>
+          <div class="singlequeue">
+            <div>
+              <span><b>title</b></span>
+              <p>
+                you have 51 people to serve
+              </p>
+            </div>
+            <div>
+              <a href="#" class="pure-button pure-button-primary">details</a>
+              <button class="pure-button pure-button-primary">serve next</button>
+            </div>
+          </div>
+          <div class="singlequeue">
+            <div>
+              <span><b>title</b></span>
+              <p>
+                you have 51 people to serve
+              </p>
+            </div>
+            <div>
+              <a href="#" class="pure-button pure-button-primary">details</a>
+              <button class="pure-button pure-button-primary">serve next</button>
+            </div>
+          </div>
+          <div class="singlequeue">
+            <div>
+              <span><b>title</b></span>
+              <p>
+                you have 51 people to serve
+              </p>
+            </div>
+            <div>
+              <a href="#" class="pure-button pure-button-primary">details</a>
+              <button class="pure-button pure-button-primary">serve next</button>
+            </div>
+          </div>
+          <div class="singlequeue">
+            <div>
+              <span><b>title</b></span>
+              <p>
+                you have 51 people to serve
+              </p>
+            </div>
+            <div>
+              <a href="#" class="pure-button pure-button-primary">details</a>
+              <button class="pure-button pure-button-primary">serve next</button>
+            </div>
+          </div>
+          <div class="singlequeue">
+            <div>
+              <span><b>title</b></span>
+              <p>
+                you have 51 people to serve
+              </p>
+            </div>
+            <div>
+              <a href="#" class="pure-button pure-button-primary">details</a>
+              <button class="pure-button pure-button-primary">serve next</button>
+            </div>
+          </div>
+          <div class="singlequeue">
+            <div>
+              <span><b>title</b></span>
+              <p>
+                you have 51 people to serve
+              </p>
+            </div>
+            <div>
+              <a href="#" class="pure-button pure-button-primary">details</a>
+              <button class="pure-button pure-button-primary">serve next</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-
 </body>
 </html>

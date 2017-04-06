@@ -3,36 +3,43 @@ require 'bundler'
 #requires errthing
 Bundler.require
 
-require './models/article'
-require './models/review'
-DataMapper.setup(:default, 'postgres://localhost/lineup')
-DataMapper.finalize
-DataMapper.auto_migrate!
+# require './models/article'
+# require './models/review'
+# DataMapper.setup(:default, 'postgres://localhost/lineup')
+# DataMapper.finalize
+# DataMapper.auto_migrate!
 
 
-## for here ruby main.rb ==>
-get '/' do
-  "hello world"
-end
 
-#curl localhost:4567/reviews && echo
-get '/reviews' do
-  content_type :json
-  reviews = Review.all
-  reviews.to_json
-end
+# ==============> BIG COMMENT bEGIN
+#
+# ## for here ruby main.rb ==>
+# get '/' do
+#   "hello world"
+# end
+#
+# #curl localhost:4567/reviews && echo
+# get '/reviews' do
+#   content_type :json
+#   reviews = Review.all
+#   reviews.to_json
+# end
+#
+# #curl -d "review[name]=hello&review[text]=woorrlldd" localhost:4567/reviews && echo
+# post '/reviews' do
+#   review = Review.new params[:review]
+#   if review.save
+#     status 201
+#     json "Review was save"
+#   else
+#     status 500
+#   end
+# end
+# ## ===|
+#
 
-#curl -d "review[name]=hello&review[text]=woorrlldd" localhost:4567/reviews && echo
-post '/reviews' do
-  review = Review.new params[:review]
-  if review.save
-    status 201
-    json "Review was save"
-  else
-    status 500
-  end
-end
-## ===|
+
+# <============== BIG COMMENT END
 
 ## for here rackup main.rb ==>
 class Main < Sinatra::Base
