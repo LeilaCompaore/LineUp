@@ -3,7 +3,7 @@ require 'bundler'
 #requires errthing
 Bundler.require
 
-class Web < Sinatra::Base
+class Web < Sinatra::Application
   get '/' do
     "allo"
   end
